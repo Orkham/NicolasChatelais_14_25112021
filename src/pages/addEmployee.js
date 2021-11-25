@@ -1,44 +1,99 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+
+const StyledForm = styled.div`
+  h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 10px;
+  }
+
+  .address {
+    margin-top: 10px;
+  }
+`
 
 export function AddEmployee() {
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+
+  const [formData, setFormData] = useState({
+    firstName,
+    lastName,
+  })
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(formData)
+  }
+
   return (
-    <div>
+    <StyledForm>
       <div>
         <h1>HRnet</h1>
       </div>
-      <div class="container">
-        <a href="employee-list.html">View Current Employees</a>
+      <div className="container">
+        <Link to="/list">View Current Employees</Link>
         <h2>Create Employee</h2>
-        <form action="#" id="create-employee">
-          <label for="first-name">First Name</label>
-          <input type="text" id="first-name" />
+        <form action="#" id="create-employee" onSubmit={handleSubmit}>
+          <label htmlFor="first-name">First Name</label>
+          <input
+            onChange={(e) =>
+              setFormData({ ...formData, firstName: e.target.value })
+            }
+            type="text"
+            id="first-name"
+            value={formData.firstName}
+            name="firstName"
+          />
 
-          <label for="last-name">Last Name</label>
-          <input type="text" id="last-name" />
+          <label htmlFor="last-name">Last Name</label>
+          <input
+            type="text"
+            id="last-name"
+            value={formData.lastName}
+            name="lastName"
+            onChange={(e) =>
+              setFormData({ ...formData, lastName: e.target.value })
+            }
+          />
 
-          <label for="date-of-birth">Date of Birth</label>
+          <label htmlFor="date-of-birth">Date of Birth</label>
           <input id="date-of-birth" type="text" />
 
-          <label for="start-date">Start Date</label>
+          <label htmlFor="start-date">Start Date</label>
           <input id="start-date" type="text" />
 
-          <fieldset class="address">
+          <fieldset className="address">
             <legend>Address</legend>
 
-            <label for="street">Street</label>
+            <label htmlFor="street">Street</label>
             <input id="street" type="text" />
 
-            <label for="city">City</label>
+            <label htmlFor="city">City</label>
             <input id="city" type="text" />
 
-            <label for="state">State</label>
+            <label htmlFor="state">State</label>
             <select name="state" id="state"></select>
 
-            <label for="zip-code">Zip Code</label>
+            <label htmlFor="zip-code">Zip Code</label>
             <input id="zip-code" type="number" />
           </fieldset>
 
-          <label for="department">Department</label>
+          <label htmlFor="department">Department</label>
           <select name="department" id="department">
             <option>Sales</option>
             <option>Marketing</option>
@@ -48,11 +103,11 @@ export function AddEmployee() {
           </select>
         </form>
 
-        <button>Save</button>
+        <button onClick={handleSubmit}>Save</button>
       </div>
-      <div id="confirmation" class="modal">
+      <div id="confirmation" className="modal">
         Employee Created!
       </div>
-    </div>
+    </StyledForm>
   )
 }
