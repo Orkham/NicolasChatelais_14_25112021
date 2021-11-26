@@ -1,6 +1,8 @@
+/*eslint no-unused-vars: off */
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import DatePicker from 'react-date-picker'
 
 const StyledForm = styled.div`
   h1 {
@@ -29,10 +31,14 @@ const StyledForm = styled.div`
 export function AddEmployee() {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
+  const [birthDate, setBirthDate] = useState(new Date())
+  const [startDate, setStartDate] = useState(new Date())
 
   const [formData, setFormData] = useState({
     firstName,
     lastName,
+    birthDate,
+    startDate,
   })
 
   const handleSubmit = (e) => {
@@ -72,10 +78,22 @@ export function AddEmployee() {
           />
 
           <label htmlFor="date-of-birth">Date of Birth</label>
-          <input id="date-of-birth" type="text" />
+          <DatePicker
+            onChange={(birthDate) => {
+              setBirthDate(birthDate)
+              setFormData({ ...formData, birthDate: birthDate })
+            }}
+            value={birthDate}
+          />
 
           <label htmlFor="start-date">Start Date</label>
-          <input id="start-date" type="text" />
+          <DatePicker
+            onChange={(startDate) => {
+              setStartDate(startDate)
+              setFormData({ ...formData, startDate: startDate })
+            }}
+            value={startDate}
+          />
 
           <fieldset className="address">
             <legend>Address</legend>
