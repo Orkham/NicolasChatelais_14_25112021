@@ -6,12 +6,8 @@ import DatePicker from 'react-date-picker'
 import swal from 'sweetalert'
 import Select from 'react-select'
 import SelectComponent from '../components/Select'
-
-const options = [
-  { value: 'premier', label: 'premier' },
-  { value: 'deuxième', label: 'deuxième' },
-  { value: 'troisième', label: 'troisième' },
-]
+import { usStatesOptions } from '../assets/SelectOptions/usStatesList'
+import { departementsOptions } from '../assets/SelectOptions/departmentsList'
 
 const StyledForm = styled.div`
   h1 {
@@ -44,7 +40,9 @@ export function AddEmployee() {
   const [startDate, setStartDate] = useState(new Date())
   const [street, setStreet] = useState('')
   const [city, setCity] = useState('')
-  const [state, setState] = useState('')
+  const [usState, setUSState] = useState('')
+  const [zipCode, setZipCode] = useState('')
+  const [department, setDepartment] = useState('')
 
   const [formData, setFormData] = useState({
     firstName,
@@ -53,19 +51,15 @@ export function AddEmployee() {
     startDate,
     street,
     city,
-    state,
+    usState,
+    zipCode,
+    department,
   })
 
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(formData)
     //swal('Données Sauvegardées !')
-  }
-
-  const handleStateChange = (e) => {
-    console.log(e.value)
-    setState(e.value)
-    setFormData({ ...formData, state: state })
   }
 
   return (
@@ -141,29 +135,36 @@ export function AddEmployee() {
             />
 
             <SelectComponent
-              options={options}
-              name="state"
-              handleChange={handleStateChange}
+              options={usStatesOptions}
+              name="State"
+              handleChange={(e) => {
+                setUSState(e.value)
+                setFormData({ ...formData, usState: e.value })
+              }}
             />
 
             <label htmlFor="zip-code">Zip Code</label>
-            <input id="zip-code" type="number" />
+            <input
+              id="zip-code"
+              type="number"
+              value={formData.zipCode}
+              onChange={(e) => {
+                setFormData({ ...formData, zipCode: e.target.value })
+              }}
+            />
           </fieldset>
 
-          <label htmlFor="department">Department</label>
-          <select name="department" id="department">
-            <option>Sales</option>
-            <option>Marketing</option>
-            <option>Engineering</option>
-            <option>Human Resources</option>
-            <option>Legal</option>
-          </select>
+          <SelectComponent
+            options={departementsOptions}
+            name="Department"
+            handleChange={(e) => {
+              setDepartment(e.value)
+              setFormData({ ...formData, department: e.value })
+            }}
+          />
         </form>
 
         <button onClick={handleSubmit}>Save</button>
-      </div>
-      <div id="confirmation" className="modal">
-        Employee Created!
       </div>
     </StyledForm>
   )
