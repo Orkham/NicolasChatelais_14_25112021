@@ -3,6 +3,15 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import DatePicker from 'react-date-picker'
+import swal from 'sweetalert'
+import Select from 'react-select'
+import SelectComponent from '../components/Select'
+
+const options = [
+  { value: 'premier', label: 'premier' },
+  { value: 'deuxième', label: 'deuxième' },
+  { value: 'troisième', label: 'troisième' },
+]
 
 const StyledForm = styled.div`
   h1 {
@@ -33,17 +42,30 @@ export function AddEmployee() {
   const [lastName, setLastName] = useState('')
   const [birthDate, setBirthDate] = useState(new Date())
   const [startDate, setStartDate] = useState(new Date())
+  const [street, setStreet] = useState('')
+  const [city, setCity] = useState('')
+  const [state, setState] = useState('')
 
   const [formData, setFormData] = useState({
     firstName,
     lastName,
     birthDate,
     startDate,
+    street,
+    city,
+    state,
   })
 
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(formData)
+    //swal('Données Sauvegardées !')
+  }
+
+  const handleStateChange = (e) => {
+    console.log(e.value)
+    setState(e.value)
+    setFormData({ ...formData, state: state })
   }
 
   return (
@@ -99,13 +121,30 @@ export function AddEmployee() {
             <legend>Address</legend>
 
             <label htmlFor="street">Street</label>
-            <input id="street" type="text" />
+            <input
+              id="street"
+              type="text"
+              value={formData.street}
+              onChange={(e) =>
+                setFormData({ ...formData, street: e.target.value })
+              }
+            />
 
             <label htmlFor="city">City</label>
-            <input id="city" type="text" />
+            <input
+              id="city"
+              type="text"
+              value={formData.city}
+              onChange={(e) =>
+                setFormData({ ...formData, city: e.target.value })
+              }
+            />
 
-            <label htmlFor="state">State</label>
-            <select name="state" id="state"></select>
+            <SelectComponent
+              options={options}
+              name="state"
+              handleChange={handleStateChange}
+            />
 
             <label htmlFor="zip-code">Zip Code</label>
             <input id="zip-code" type="number" />
