@@ -8,6 +8,8 @@ import Select from 'react-select'
 import SelectComponent from '../components/Select'
 import { usStatesOptions } from '../assets/SelectOptions/usStatesList'
 import { departementsOptions } from '../assets/SelectOptions/departmentsList'
+import { useDispatch } from 'react-redux'
+import { store } from '../App'
 
 const StyledForm = styled.div`
   h1 {
@@ -56,10 +58,14 @@ export function AddEmployee() {
     department,
   })
 
+  const dispatch = useDispatch()
+
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(formData)
     //swal('Données Sauvegardées !')
+    dispatch({ type: 'TEST' })
+    console.log(store.getState())
   }
 
   return (
