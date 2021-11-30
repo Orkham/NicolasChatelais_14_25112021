@@ -1,15 +1,61 @@
 // state
 const initialState = {
-  test: '',
-  datas: [],
+  datas: [
+    {
+      firstName: 'John',
+      lastName: 'Doe',
+      birthDate: '01/01/2000',
+      startDate: '01/01/2020',
+      street: 'rue du Passé',
+      city: 'Paris',
+      usState: 'Alabama',
+      zipCode: '1234',
+      department: 'engineering',
+      id: Math.random(),
+    },
+    {
+      firstName: 'John',
+      lastName: 'Doe',
+      birthDate: '01/01/2000',
+      startDate: '01/01/2020',
+      street: 'rue du Passé',
+      city: 'Paris',
+      usState: 'Alabama',
+      zipCode: '1234',
+      department: 'engineering',
+      id: Math.random(),
+    },
+    {
+      firstName: 'John',
+      lastName: 'Doe',
+      birthDate: '01/01/2000',
+      startDate: '01/01/2020',
+      street: 'rue du Passé',
+      city: 'Paris',
+      usState: 'Alabama',
+      zipCode: '1234',
+      department: 'engineering',
+      id: Math.random(),
+    },
+    {
+      firstName: 'John',
+      lastName: 'Doe',
+      birthDate: '01/01/2000',
+      startDate: '01/01/2020',
+      street: 'rue du Passé',
+      city: 'Paris',
+      usState: 'Alabama',
+      zipCode: '1234',
+      department: 'engineering',
+      id: Math.random(),
+    },
+  ],
 }
 
 export function reducer(state = initialState, action) {
   switch (action.type) {
-    case 'TEST':
-      return { test: 'ok' }
     case 'SAVE_DATA':
-      return { ...state, datas: 'new datas' }
+      return { datas: [...state.datas, action.payload] }
     default:
       return state
   }

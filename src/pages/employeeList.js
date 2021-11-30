@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import MaterialTable from '@material-table/core'
+import { useSelector } from 'react-redux'
 
 const StyledList = styled.div`
   h1 {
@@ -28,70 +29,10 @@ const StyledList = styled.div`
   }
 `
 
-const data = [
-  {
-    firstName: 'John',
-    lastName: 'Doe',
-    birthDate: '01/01/2000',
-    startDate: '01/01/2020',
-    street: 'rue du Passé',
-    city: 'Paris',
-    usState: 'Alabama',
-    zipCode: '1234',
-    department: 'engineering',
-    id: Math.random(),
-  },
-  {
-    firstName: 'John',
-    lastName: 'Doe',
-    birthDate: '01/01/2000',
-    startDate: '01/01/2020',
-    street: 'rue du Passé',
-    city: 'Paris',
-    usState: 'Alabama',
-    zipCode: '1234',
-    department: 'engineering',
-    id: Math.random(),
-  },
-  {
-    firstName: 'John',
-    lastName: 'Doe',
-    birthDate: '01/01/2000',
-    startDate: '01/01/2020',
-    street: 'rue du Passé',
-    city: 'Paris',
-    usState: 'Alabama',
-    zipCode: '1234',
-    department: 'engineering',
-    id: Math.random(),
-  },
-  {
-    firstName: 'John',
-    lastName: 'Doe',
-    birthDate: '01/01/2000',
-    startDate: '01/01/2020',
-    street: 'rue du Passé',
-    city: 'Paris',
-    usState: 'Alabama',
-    zipCode: '1234',
-    department: 'engineering',
-    id: Math.random(),
-  },
-  {
-    firstName: 'Johne',
-    lastName: 'Doe',
-    birthDate: '01/01/2000',
-    startDate: '01/01/2020',
-    street: 'rue du Passé',
-    city: 'Paris',
-    usState: 'Alabama',
-    zipCode: '1234',
-    department: 'engineering',
-    id: Math.random(),
-  },
-]
-
 export function EmployeeList() {
+  const listFromStore = useSelector((state) => state.datas)
+  console.log(listFromStore)
+
   return (
     <StyledList id="employee-div" className="container">
       <h1>Current Employees</h1>
@@ -109,7 +50,7 @@ export function EmployeeList() {
           { title: 'State', field: 'usState' },
           { title: 'Zip Code', field: 'zipCode' },
         ]}
-        data={data}
+        data={listFromStore}
       />
     </StyledList>
   )

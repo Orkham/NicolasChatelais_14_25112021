@@ -62,9 +62,8 @@ export function AddEmployee() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(formData)
     //swal('Données Sauvegardées !')
-    dispatch({ type: 'TEST' })
+    dispatch({ type: 'SAVE_DATA', payload: formData })
     console.log(store.getState())
   }
 
