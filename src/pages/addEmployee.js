@@ -3,13 +3,12 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import DatePicker from 'react-date-picker'
-import swal from 'sweetalert'
-import Select from 'react-select'
 import SelectComponent from '../components/Select'
 import { usStatesOptions } from '../assets/SelectOptions/usStatesList'
 import { departementsOptions } from '../assets/SelectOptions/departmentsList'
 import { useDispatch } from 'react-redux'
 import { store } from '../App'
+import ModalComponent from '../components/Modal'
 
 const StyledForm = styled.div`
   h1 {
@@ -35,11 +34,17 @@ const StyledForm = styled.div`
   }
 `
 
+function formatDate(date) {
+  const options = { formatMatcher: 'basic' }
+  const result = date.toLocaleDateString(undefined, options)
+  return result
+}
+
 export function AddEmployee() {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
-  const [birthDate, setBirthDate] = useState(new Date())
-  const [startDate, setStartDate] = useState(new Date())
+  const [birthDate, setBirthDate] = useState('')
+  const [startDate, setStartDate] = useState('')
   const [street, setStreet] = useState('')
   const [city, setCity] = useState('')
   const [usState, setUSState] = useState('')
@@ -62,7 +67,6 @@ export function AddEmployee() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    //swal('Données Sauvegardées !')
     dispatch({ type: 'SAVE_DATA', payload: formData })
     console.log(store.getState())
   }
@@ -75,7 +79,12 @@ export function AddEmployee() {
       <div className="container">
         <Link to="/list">View Current Employees</Link>
         <h2>Create Employee</h2>
-        <form action="#" id="create-employee" onSubmit={handleSubmit}>
+        <form
+          action="#"
+          id="create-employee"
+          onSubmit={handleSubmit}
+          noValidate
+        >
           <label htmlFor="first-name">First Name</label>
           <input
             onChange={(e) =>
@@ -102,7 +111,7 @@ export function AddEmployee() {
           <DatePicker
             onChange={(birthDate) => {
               setBirthDate(birthDate)
-              setFormData({ ...formData, birthDate: birthDate })
+              setFormData({ ...formData, birthDate: formatDate(birthDate) })
             }}
             value={birthDate}
           />
@@ -111,7 +120,7 @@ export function AddEmployee() {
           <DatePicker
             onChange={(startDate) => {
               setStartDate(startDate)
-              setFormData({ ...formData, startDate: startDate })
+              setFormData({ ...formData, startDate: formatDate(startDate) })
             }}
             value={startDate}
           />
@@ -167,10 +176,11 @@ export function AddEmployee() {
               setFormData({ ...formData, department: e.value })
             }}
           />
+          <input type="submit" value="Save" />
         </form>
-
-        <button onClick={handleSubmit}>Save</button>
       </div>
+
+      <ModalComponent />
     </StyledForm>
   )
 }
