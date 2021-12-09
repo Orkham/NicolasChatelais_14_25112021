@@ -2,6 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
+import { createPortal } from 'react-dom'
 
 export default function ModalComponent() {
   const StyledModal = styled.div`
@@ -13,7 +14,7 @@ export default function ModalComponent() {
     width: 100%;
     overflow: auto;
     background-color: rgba(26, 39, 156, 0.4);
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     p {
@@ -33,9 +34,9 @@ export default function ModalComponent() {
     }
   `
 
-  return (
+  return createPortal(
     <StyledModal>
-      <p>Votre réservation a bien été reçue. Merci beaucoup !</p>
+      <p>Employé créé</p>
 
       {/* TO DO fermeture modal */}
       <FontAwesomeIcon
@@ -45,6 +46,7 @@ export default function ModalComponent() {
           console.log('fermeture')
         }}
       />
-    </StyledModal>
+    </StyledModal>,
+    document.getElementById('bis')
   )
 }

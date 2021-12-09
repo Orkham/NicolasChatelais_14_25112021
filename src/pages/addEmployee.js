@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux'
 import { store } from '../App'
 import ModalComponent from '../components/Modal'
 import { checkForm, getLastDatas } from '../services/formVallidation'
+import ReactDOM, { createPortal } from 'react-dom'
 
 const StyledForm = styled.div`
   h1 {
@@ -51,6 +52,7 @@ export function AddEmployee() {
   const [usState, setUSState] = useState('')
   const [zipCode, setZipCode] = useState('')
   const [department, setDepartment] = useState('')
+  const [modalOn, setModalOn] = useState(false)
 
   const [formData, setFormData] = useState({
     firstName,
@@ -68,12 +70,18 @@ export function AddEmployee() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    //const datas = getLastDatas(formData)
-    const isDatasChecked = checkForm(formData)
+    /* const isDatasChecked = checkForm(formData)
     if (isDatasChecked === undefined) {
       console.log('employé créé')
       dispatch({ type: 'SAVE_DATA', payload: formData })
-    }
+      return ReactDOM.createPortal(
+        <ModalComponent />,
+        document.getElementById('bis')
+      )
+    } */
+    setModalOn(true)
+    console.log('ouverture modale')
+    return <ModalComponent />
   }
 
   return (
@@ -184,8 +192,7 @@ export function AddEmployee() {
           <input type="submit" value="Save" />
         </form>
       </div>
-
-      {/* <ModalComponent /> */}
+      {modalOn && <ModalComponent />}
     </StyledForm>
   )
 }
