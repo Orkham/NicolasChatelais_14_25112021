@@ -13,7 +13,7 @@ export default function ModalComponent() {
     width: 100%;
     overflow: auto;
     background-color: rgba(26, 39, 156, 0.4);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     p {
@@ -41,7 +41,7 @@ export default function ModalComponent() {
       <FontAwesomeIcon
         icon={faTimesCircle}
         id="closeIcon"
-        onClick={() => {
+        onClick={(e) => {
           console.log('fermeture')
         }}
       />

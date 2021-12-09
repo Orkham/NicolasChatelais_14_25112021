@@ -9,6 +9,7 @@ import { departementsOptions } from '../assets/SelectOptions/departmentsList'
 import { useDispatch } from 'react-redux'
 import { store } from '../App'
 import ModalComponent from '../components/Modal'
+import { checkForm, getLastDatas } from '../services/formVallidation'
 
 const StyledForm = styled.div`
   h1 {
@@ -67,8 +68,12 @@ export function AddEmployee() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    dispatch({ type: 'SAVE_DATA', payload: formData })
-    console.log(store.getState())
+    //const datas = getLastDatas(formData)
+    const isDatasChecked = checkForm(formData)
+    if (isDatasChecked === undefined) {
+      console.log('employé créé')
+      dispatch({ type: 'SAVE_DATA', payload: formData })
+    }
   }
 
   return (
@@ -180,7 +185,7 @@ export function AddEmployee() {
         </form>
       </div>
 
-      <ModalComponent />
+      {/* <ModalComponent /> */}
     </StyledForm>
   )
 }
