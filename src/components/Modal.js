@@ -5,6 +5,11 @@ import styled from 'styled-components'
 import { createPortal } from 'react-dom'
 
 export default function ModalComponent() {
+  let newModalContainer = document.createElement('div')
+  newModalContainer.id = 'bis'
+  document.body.prepend(newModalContainer)
+  console.log(newModalContainer)
+
   const StyledModal = styled.div`
     z-index: 2;
     position: fixed;
@@ -35,16 +40,23 @@ export default function ModalComponent() {
   `
 
   return createPortal(
-    <StyledModal>
+    <StyledModal
+      onClick={(e) => {
+        console.log('fermeture de la modale')
+        const bis = document.getElementById('bis')
+        console.log(bis)
+        document.body.removeChild(bis)
+      }}
+    >
       <p>Employé créé</p>
 
       {/* TO DO fermeture modal */}
       <FontAwesomeIcon
         icon={faTimesCircle}
         id="closeIcon"
-        onClick={(e) => {
+        /*onClick={(e) => {
           console.log('fermeture')
-        }}
+        }}*/
       />
     </StyledModal>,
     document.getElementById('bis')

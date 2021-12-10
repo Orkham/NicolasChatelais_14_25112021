@@ -13,6 +13,10 @@ import { checkForm, getLastDatas } from '../services/formVallidation'
 import ReactDOM, { createPortal } from 'react-dom'
 
 const StyledForm = styled.div`
+  * {
+    font-family: 'Montserrat';
+  }
+
   h1 {
     display: flex;
     flex-direction: column;
@@ -28,11 +32,20 @@ const StyledForm = styled.div`
   label {
     display: block;
     margin-top: 1rem;
-    margin-bottom: 10px;
+    margin-bottom: 0.4rem;
   }
-
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
   .address {
     margin-top: 10px;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  input[type='submit'] {
+    margin-top: 1rem;
   }
 `
 
@@ -52,6 +65,7 @@ export function AddEmployee() {
   const [usState, setUSState] = useState('')
   const [zipCode, setZipCode] = useState('')
   const [department, setDepartment] = useState('')
+
   const [modalOn, setModalOn] = useState(false)
 
   const [formData, setFormData] = useState({
@@ -81,7 +95,7 @@ export function AddEmployee() {
     } */
     setModalOn(true)
     console.log('ouverture modale')
-    return <ModalComponent />
+    //return <ModalComponent />
   }
 
   return (
