@@ -5,6 +5,9 @@ import MaterialTable from '@material-table/core'
 import { useSelector } from 'react-redux'
 
 const StyledList = styled.div`
+  * {
+    font-family: 'Montserrat';
+  }
   h1 {
     display: flex;
     flex-direction: column;
@@ -27,6 +30,12 @@ const StyledList = styled.div`
   .address {
     margin-top: 10px;
   }
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
 `
 
 export function EmployeeList() {
@@ -37,7 +46,7 @@ export function EmployeeList() {
     <StyledList id="employee-div" className="container">
       <h1>Current Employees</h1>
       <table id="employee-table" className="display"></table>
-      <Link to="/">Home</Link>
+      <Link to="/">Form</Link>
       <MaterialTable
         columns={[
           { title: 'First Name', field: 'firstName' },
@@ -51,6 +60,7 @@ export function EmployeeList() {
           { title: 'Zip Code', field: 'zipCode' },
         ]}
         data={listFromStore}
+        title="Employees List"
       />
     </StyledList>
   )
