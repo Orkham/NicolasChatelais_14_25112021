@@ -1,14 +1,18 @@
-import React from 'react'
+/*eslint no-unused-vars: off */
+import React, { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
 import { createPortal } from 'react-dom'
 
 export default function ModalComponent() {
-  let newModalContainer = document.createElement('div')
-  newModalContainer.id = 'bis'
-  document.body.prepend(newModalContainer)
-  console.log(newModalContainer)
+  //const [modalOn, setModalOn] = useState(true)
+
+  /* useEffect(() => {
+    let newModalContainer = document.createElement('div')
+    newModalContainer.id = 'bis'
+    document.body.prepend(newModalContainer)
+  }) */
 
   const StyledModal = styled.div`
     z-index: 2;
@@ -38,26 +42,15 @@ export default function ModalComponent() {
       }
     }
   `
-
   return createPortal(
     <StyledModal
-      onClick={(e) => {
+      onClick={() => {
         console.log('fermeture de la modale')
-        const bis = document.getElementById('bis')
-        console.log(bis)
-        document.body.removeChild(bis)
       }}
     >
       <p>Employé créé</p>
 
-      {/* TO DO fermeture modal */}
-      <FontAwesomeIcon
-        icon={faTimesCircle}
-        id="closeIcon"
-        /*onClick={(e) => {
-          console.log('fermeture')
-        }}*/
-      />
+      <FontAwesomeIcon icon={faTimesCircle} id="closeIcon" />
     </StyledModal>,
     document.getElementById('bis')
   )

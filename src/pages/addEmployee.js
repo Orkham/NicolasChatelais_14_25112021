@@ -11,6 +11,8 @@ import { store } from '../App'
 import ModalComponent from '../components/Modal'
 import { checkForm, getLastDatas } from '../services/formVallidation'
 import ReactDOM, { createPortal } from 'react-dom'
+import { useModal } from '../services/modalDisplay'
+import Modal from '../services/modalDisplay'
 
 const StyledForm = styled.div`
   * {
@@ -68,6 +70,8 @@ export function AddEmployee() {
 
   const [modalOn, setModalOn] = useState(false)
 
+  const { isShowing, toggle } = useModal()
+
   const [formData, setFormData] = useState({
     firstName,
     lastName,
@@ -84,18 +88,13 @@ export function AddEmployee() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    /* const isDatasChecked = checkForm(formData)
-    if (isDatasChecked === undefined) {
+    const isDatasChecked = checkForm(formData)
+    /* if (isDatasChecked === undefined) {
       console.log('employé créé')
       dispatch({ type: 'SAVE_DATA', payload: formData })
-      return ReactDOM.createPortal(
-        <ModalComponent />,
-        document.getElementById('bis')
-      )
+      toggle()
     } */
-    setModalOn(true)
-    console.log('ouverture modale')
-    //return <ModalComponent />
+    toggle()
   }
 
   return (
@@ -206,7 +205,8 @@ export function AddEmployee() {
           <input type="submit" value="Save" />
         </form>
       </div>
-      {modalOn && <ModalComponent />}
+      {/* {modalOn && <ModalComponent />} */}
+      <Modal isShowing={isShowing} hide={toggle} />
     </StyledForm>
   )
 }
