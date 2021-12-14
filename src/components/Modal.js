@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import styled from 'styled-components'
 import { createPortal } from 'react-dom'
-import { useModal } from '../services/modalDisplay'
+
 
 const StyledModal = styled.div`
   z-index: 2;

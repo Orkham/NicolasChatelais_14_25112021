@@ -1,9 +1,9 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { AddEmployee } from './pages/AddEmployee'
-import { EmployeeList } from './pages/EmployeeList'
+import { AddEmployee } from './pages/AddEmployee.js'
+import { EmployeeList } from './pages/EmployeeList.js'
 import { createStore } from 'redux'
-import { reducer } from './reducers/reducer'
+import { reducer } from './reducers/reducer.js'
 import { Provider } from 'react-redux'
 
 export const store = createStore(reducer)
