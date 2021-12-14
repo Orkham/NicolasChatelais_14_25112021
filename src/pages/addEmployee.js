@@ -12,7 +12,7 @@ import ModalComponent from '../components/Modal'
 import { checkForm, getLastDatas } from '../services/formVallidation'
 import ReactDOM, { createPortal } from 'react-dom'
 import { useModal } from '../services/modalDisplay'
-import Modal from '../services/modalDisplay'
+import Modal from '../components/Modal'
 
 const StyledForm = styled.div`
   * {
