@@ -1,10 +1,10 @@
 /*eslint no-unused-vars: off */
-import React, { useEffect, useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import React from 'react'
+/* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons' */
 import styled from 'styled-components'
 import { createPortal } from 'react-dom'
-
+import { FaTimes } from 'react-icons/fa'
 
 const StyledModal = styled.div`
   z-index: 2;
@@ -41,7 +41,7 @@ const Modal = ({ isShowing, hide }) =>
         <StyledModal onClick={hide}>
           <p>Employé créé</p>
 
-          <FontAwesomeIcon icon={faTimesCircle} id="closeIcon" />
+          <FaTimes id="closeIcon" />
         </StyledModal>,
         document.body
       )

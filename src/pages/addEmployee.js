@@ -7,8 +7,8 @@ import SelectComponent from '../components/Select.js'
 import { usStatesOptions } from '../assets/SelectOptions/usStatesList.js'
 import { departementsOptions } from '../assets/SelectOptions/departmentsList.js'
 import { useDispatch } from 'react-redux'
-import { checkForm, getLastDatas } from '../services/formVallidation.js'
-import ReactDOM, { createPortal } from 'react-dom'
+import { checkForm } from '../services/formVallidation.js'
+
 import { useModal } from '../services/modalDisplay.js'
 import Modal from '../components/Modal.js'
 

@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.js": "/NicolasChatelais_14_25112021/static/js/main.b08a9047.chunk.js",
-    "main.js.map": "/NicolasChatelais_14_25112021/static/js/main.b08a9047.chunk.js.map",
+    "main.js": "/NicolasChatelais_14_25112021/static/js/main.3d415dff.chunk.js",
+    "main.js.map": "/NicolasChatelais_14_25112021/static/js/main.3d415dff.chunk.js.map",
     "runtime-main.js": "/NicolasChatelais_14_25112021/static/js/runtime-main.d6d1d0d2.js",
     "runtime-main.js.map": "/NicolasChatelais_14_25112021/static/js/runtime-main.d6d1d0d2.js.map",
     "static/css/2.ba1b51e3.chunk.css": "/NicolasChatelais_14_25112021/static/css/2.ba1b51e3.chunk.css",
-    "static/js/2.51bbff02.chunk.js": "/NicolasChatelais_14_25112021/static/js/2.51bbff02.chunk.js",
-    "static/js/2.51bbff02.chunk.js.map": "/NicolasChatelais_14_25112021/static/js/2.51bbff02.chunk.js.map",
+    "static/js/2.489c6f38.chunk.js": "/NicolasChatelais_14_25112021/static/js/2.489c6f38.chunk.js",
+    "static/js/2.489c6f38.chunk.js.map": "/NicolasChatelais_14_25112021/static/js/2.489c6f38.chunk.js.map",
     "index.html": "/NicolasChatelais_14_25112021/index.html",
     "static/css/2.ba1b51e3.chunk.css.map": "/NicolasChatelais_14_25112021/static/css/2.ba1b51e3.chunk.css.map",
-    "static/js/2.51bbff02.chunk.js.LICENSE.txt": "/NicolasChatelais_14_25112021/static/js/2.51bbff02.chunk.js.LICENSE.txt"
+    "static/js/2.489c6f38.chunk.js.LICENSE.txt": "/NicolasChatelais_14_25112021/static/js/2.489c6f38.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d6d1d0d2.js",
     "static/css/2.ba1b51e3.chunk.css",
-    "static/js/2.51bbff02.chunk.js",
-    "static/js/main.b08a9047.chunk.js"
+    "static/js/2.489c6f38.chunk.js",
+    "static/js/main.3d415dff.chunk.js"
   ]
 }
