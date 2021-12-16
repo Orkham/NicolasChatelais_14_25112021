@@ -40,7 +40,6 @@ const StyledList = styled.div`
 
 export function EmployeeList() {
   const listFromStore = useSelector((state) => state.datas)
-  console.log(listFromStore)
 
   return (
     <StyledList id="employee-div" className="container">
