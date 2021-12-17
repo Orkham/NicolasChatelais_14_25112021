@@ -10505,6 +10505,21 @@
     "merge-class-names" "^1.1.1"
     "prop-types" "^15.6.0"
 
+"react-data-table-component-extensions@^1.5.2":
+  "integrity" "sha512-u7GpZf9V5PRXAfkgvYHM22Zoaz7mMakLcHgO5zlK0Urw27CGkprBHFpBylizKytTj1U6ABuIWDXuJr4/IXhSHg=="
+  "resolved" "https://registry.npmjs.org/react-data-table-component-extensions/-/react-data-table-component-extensions-1.5.2.tgz"
+  "version" "1.5.2"
+  dependencies:
+    "react" "^16.9.0"
+
+"react-data-table-component-with-filter@^7.4.5":
+  "integrity" "sha512-Z4t1YxpoTlsklQZU2Z6gevIcybzrZk1deYpLlvQ+9foCFUk+tSreeq38TgtBTdZ9dsTnL+X01tC1FFiJHd5Ivg=="
+  "resolved" "https://registry.npmjs.org/react-data-table-component-with-filter/-/react-data-table-component-with-filter-7.4.5.tgz"
+  "version" "7.4.5"
+  dependencies:
+    "deepmerge" "^4.2.2"
+    "yocto-queue" "^1.0.0"
+
 "react-data-table-component@^7.4.5":
   "integrity" "sha512-CnEbnnBuOj1twqbzZfdztIwgUMzt4k3MkikVWiTe1O6uf93sOoYAkKABJYYg1sWwcA3fI2Tuo6aq3XYE9Hscog=="
   "resolved" "https://registry.npmjs.org/react-data-table-component/-/react-data-table-component-7.4.5.tgz"
@@ -10746,6 +10761,15 @@
   dependencies:
     "loose-envify" "^1.1.0"
     "object-assign" "^4.1.1"
+
+"react@^16.9.0":
+  "integrity" "sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g=="
+  "resolved" "https://registry.npmjs.org/react/-/react-16.14.0.tgz"
+  "version" "16.14.0"
+  dependencies:
+    "loose-envify" "^1.1.0"
+    "object-assign" "^4.1.1"
+    "prop-types" "^15.6.2"
 
 "read-pkg-up@^2.0.0":
   "integrity" "sha1-a3KoBImE4MQeeVEP1en6mbO1Sb4="
@@ -13504,3 +13528,8 @@
   "integrity" "sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q=="
   "resolved" "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   "version" "0.1.0"
+
+"yocto-queue@^1.0.0":
+  "integrity" "sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g=="
+  "resolved" "https://registry.npmjs.org/yocto-queue/-/yocto-queue-1.0.0.tgz"
+  "version" "1.0.0"

@@ -4,6 +4,8 @@ import styled from 'styled-components'
 //import MaterialTable from '@material-table/core'
 import { useSelector } from 'react-redux'
 import DataTable from 'react-data-table-component'
+import DataTableExtensions from 'react-data-table-component-extensions'
+import 'react-data-table-component-extensions/dist/index.css'
 
 const StyledList = styled.div`
   * {
@@ -70,6 +72,7 @@ const columns = [
     name: 'First Name',
     selector: (row) => row.firstName,
     sortable: true,
+    filterable: true,
   },
   {
     name: 'Last Name',
@@ -162,16 +165,24 @@ const data = [
     department: 'Engineering',
     id: Math.random(),
   },
-]*/
-
+]
+*/
 export function EmployeeList() {
   const listFromStore = useSelector((state) => state.datas)
   console.log(listFromStore)
+
   return (
     <StyledList>
       <h1>Current Employees</h1>
       <Link to="/">Form</Link>
-      <DataTable columns={columns} data={listFromStore} />
+      <DataTableExtensions
+        data={listFromStore}
+        columns={columns}
+        export={false}
+        print={false}
+      >
+        <DataTable pagination responsive />
+      </DataTableExtensions>
     </StyledList>
   )
 }
