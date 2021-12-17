@@ -203,7 +203,6 @@ export function AddEmployee() {
           <input type="submit" value="Save" />
         </form>
       </div>
-      {/* {modalOn && <ModalComponent />} */}
       <Modal isShowing={isShowing} hide={toggle} />
     </StyledForm>
   )

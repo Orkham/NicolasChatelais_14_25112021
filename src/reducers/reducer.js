@@ -50,6 +50,7 @@ const initialState = {
       id: Math.random(),
     },
   ],
+  //datas: [],
 }
 
 export function reducer(state = initialState, action) {
