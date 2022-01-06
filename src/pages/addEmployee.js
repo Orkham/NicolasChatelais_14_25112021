@@ -9,8 +9,9 @@ import { departementsOptions } from '../assets/SelectOptions/departmentsList.js'
 import { useDispatch } from 'react-redux'
 import { checkForm } from '../services/formVallidation.js'
 
-import { useModal } from '../services/modalDisplay.js'
-import Modal from '../components/Modal.js'
+/* import { useModal } from '../services/modalDisplay.js'
+import Modal from '../components/Modal.js' */
+import Modal, { useModal } from 'hr-modal'
 
 const StyledForm = styled.div`
   * {
@@ -66,7 +67,7 @@ export function AddEmployee() {
   const [zipCode, setZipCode] = useState('')
   const [department, setDepartment] = useState('')
 
-  const [modalOn, setModalOn] = useState(false)
+  //const [modalOn, setModalOn] = useState(false)
 
   const { isShowing, toggle } = useModal()
 
