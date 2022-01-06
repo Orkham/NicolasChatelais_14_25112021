@@ -11,6 +11,11 @@ const StyledList = styled.div`
   * {
     font-family: 'Montserrat';
   }
+  .data-table-extensions-filter {
+    display: flex;
+    align-items: center;
+    float: right;
+  }
   h1 {
     display: flex;
     flex-direction: column;

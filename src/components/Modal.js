@@ -1,7 +1,5 @@
 /*eslint no-unused-vars: off */
 import React from 'react'
-/* import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons' */
 import styled from 'styled-components'
 import { createPortal } from 'react-dom'
 import { FaTimes } from 'react-icons/fa'
@@ -38,7 +36,7 @@ const StyledModal = styled.div`
 const Modal = ({ isShowing, hide }) =>
   isShowing
     ? createPortal(
-        <StyledModal onClick={hide}>
+        <StyledModal onClick={hide} onKeyPress={hide}>
           <p>Employé créé</p>
 
           <FaTimes id="closeIcon" />
