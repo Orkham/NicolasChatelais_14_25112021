@@ -15,16 +15,7 @@ const StyledForm = styled.div`
   * {
     font-family: arial;
   }
-  .modaldetest {
-    color: white;
-    background: black;
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+
   h1 {
     display: flex;
     flex-direction: column;
@@ -103,7 +94,6 @@ export function AddEmployee() {
 
   return (
     <StyledForm>
-      <div className="modaldetest">X</div>
       <div>
         <h1>HRnet</h1>
       </div>
