@@ -9,15 +9,22 @@ import { departementsOptions } from '../assets/SelectOptions/departmentsList.js'
 import { useDispatch } from 'react-redux'
 import { checkForm } from '../services/formVallidation.js'
 
-/* import { useModal } from '../services/modalDisplay.js'
-import Modal from '../components/Modal.js' */
 import Modal, { useModal } from 'hr-modal'
 
 const StyledForm = styled.div`
   * {
-    font-family: 'Montserrat';
+    font-family: arial;
   }
-
+  .modaldetest {
+    color: white;
+    background: black;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   h1 {
     display: flex;
     flex-direction: column;
@@ -67,8 +74,6 @@ export function AddEmployee() {
   const [zipCode, setZipCode] = useState('')
   const [department, setDepartment] = useState('')
 
-  //const [modalOn, setModalOn] = useState(false)
-
   const { isShowing, toggle } = useModal()
 
   const [formData, setFormData] = useState({
@@ -98,6 +103,7 @@ export function AddEmployee() {
 
   return (
     <StyledForm>
+      <div className="modaldetest">X</div>
       <div>
         <h1>HRnet</h1>
       </div>

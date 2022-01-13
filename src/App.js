@@ -8,8 +8,6 @@ import { Provider } from 'react-redux'
 
 export const store = createStore(reducer)
 
-//console.log(store.getState())
-
 function App() {
   return (
     <Provider store={store}>
